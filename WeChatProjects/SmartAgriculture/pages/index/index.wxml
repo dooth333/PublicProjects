@@ -1,0 +1,197 @@
+<!--index.wxml-->
+<view class=".page-container">
+<!-- 头部部分 -->
+  <view class="header-container">
+    <view class="header-air">
+    <view>
+      {{winddirection}}风-{{windpower}}级
+    </view>
+    <view>
+      {{city}} - {{province}}省
+    </view>
+    </view>
+    <view class="header-title">
+    <view>
+      {{temperature}}℃
+    </view>
+    <view>
+      {{weather}}
+    </view>
+    </view>
+    <view class="header-ad">
+      今天天气很不错
+    </view>
+  </view>
+<!-- 数据部分 -->
+  <view class="data-container">
+    <!-- 温度 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/temp.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          温度
+        </view>
+        <view class="data-card-value">
+          {{Temp}}℃
+        </view>
+      </view>
+    </view>
+
+    <!-- 湿度 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/hum.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          湿度
+        </view>
+        <view class="data-card-value">
+          {{Hum}}%
+        </view>
+      </view>
+    </view>
+
+    <!-- 光照强度 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/light.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          光照
+        </view>
+        <view class="data-card-value">
+          {{Light}} Lx
+        </view>
+      </view> 
+    </view>
+
+        <!-- 土壤湿度 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/SoilHum.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          土壤湿度
+        </view>
+        <view class="data-card-value">
+          {{SoilHum}} Lx
+        </view>
+      </view> 
+    </view>
+
+        <!-- 二氧化碳 -->
+        <view class="data-card">
+      <image class="data-card-icon" src="/static/Co2.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          二氧化碳
+        </view>
+        <view class="data-card-value">
+          {{Co2}} Lx
+        </view>
+      </view> 
+    </view>
+
+
+        <!-- TVOC -->
+        <view class="data-card">
+      <image class="data-card-icon" src="/static/TVOC.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          TVOC
+        </view>
+        <view class="data-card-value">
+          {{TVOC}} Lx
+        </view>
+      </view> 
+    </view>
+
+     <!-- 自动模式 -->
+     <view class="data-card">
+      <image class="data-card-icon" src="/static/Auto.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          自动模式
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{AutoControl}}" bindchange="AutoControlChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+    <!-- LED1 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/LED.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          LED 灯
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{LED1}}" bindchange="onLedChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+     <!-- 蜂鸣器 -->
+     <view class="data-card">
+      <image class="data-card-icon" src="/static/buzz.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          蜂鸣器
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{BUZZ}}" bindchange="onBuzzChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+
+      <!-- 舵机 -->
+      <view class="data-card">
+      <image class="data-card-icon" src="/static/Servo.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          舵机
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{Servo}}" bindchange="onServoChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+      <!-- 风扇 -->
+      <view class="data-card">
+      <image class="data-card-icon" src="/static/Fan.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          风扇
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{Fan}}" bindchange="onFanChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+    <!-- 水泵 -->
+    <view class="data-card">
+      <image class="data-card-icon" src="/static/Pump.png" />
+      <view class="data-card-text">
+        <view class="data-card-titile">
+          水泵
+        </view>
+        <view class="data-card-value">
+          <switch checked="{{WaterPump}}" bindchange="onPumpChange" color="#3d7ef9"/>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view style="height: 100%;display: flex;flex-direction: column;width: 100%;">
+    <video 
+    class="section"
+  src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" 
+    object-fit="contain" 
+    
+    >
+    
+  </video>
+ </view>
